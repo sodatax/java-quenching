@@ -81,8 +81,13 @@ public class Practice {
      */
     public static Set<String> adults(Map<String, Integer> ages) {
         if(ages == null) throw new NullPointerException();
-        
-        return null;
+        Set<String> adult = new HashSet<>();
+
+        for(String person : ages.keySet()){
+            if(ages.get(person) >= 18) adult.add(person);
+        }
+
+        return adult;
     }
 
     /**
@@ -193,6 +198,7 @@ public class Practice {
      * @return true if the sums are equal, false otherwise
      */
     public static boolean sumMatch(BinaryTreeNode<Integer> root, ListNode<Integer> head) {
+        
         return false;
     }
 }
