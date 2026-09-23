@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Collections;
 
 public class Practice {
     /**
@@ -40,8 +41,33 @@ public class Practice {
      * @throws NullPointerException if words is null
      */
     public static String shortestWord(Set<String> words) {
-        
-        return null;
+        if(words.size() == 0) throw new IllegalArgumentException();
+        if(words == null) throw new NullPointerException();
+
+        List<String> wordsList = new ArrayList<>();
+        List<String> shortWordsList = new ArrayList<>();
+
+        for(String word : words){
+            wordsList.add(word);
+        }
+
+        String shortest = wordsList.get(0);
+        shortWordsList.add(shortest);
+
+        for(String word : wordsList){
+            if(word.length() < shortest.length()){
+                shortest=word;
+                shortWordsList.remove(0);
+                shortWordsList.add(shortest);
+            }
+            else if(word.length() == shortest.length()){
+                shortWordsList.add(word);
+                Collections.sort(shortWordsList);
+                shortest = shortWordsList.get(0);
+            }
+        }
+
+        return shortest;
     }
 
     /**
