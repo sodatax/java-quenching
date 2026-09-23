@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,6 +40,7 @@ public class Practice {
      * @throws NullPointerException if words is null
      */
     public static String shortestWord(Set<String> words) {
+        
         return null;
     }
 
@@ -51,6 +54,8 @@ public class Practice {
      * @throws NullPointerException if ages is null
      */
     public static Set<String> adults(Map<String, Integer> ages) {
+        if(ages == null) throw new NullPointerException();
+        
         return null;
     }
 
@@ -62,7 +67,18 @@ public class Practice {
      * @throws IllegalArgumentException if head is null
      */
     public static int biggestNumber(ListNode<Integer> head) {
-        return 0;
+        if(head == null) throw new IllegalArgumentException();
+        
+        ListNode<Integer> current = head;
+        int largestNum = current.data;
+        
+        while(current != null){
+            if(current.data > largestNum){
+                largestNum = current.data;
+            }
+            current = current.next;
+        }
+        return largestNum;
     }
 
     /**
